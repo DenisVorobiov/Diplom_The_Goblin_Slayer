@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dba3bfc576e34b4a90bf397820da2f9, type: 3}
+  m_Name: LocalizationStorage
+  m_EditorClassIdentifier: 
+  LanguageKeys:
+  - ua
+  - en
+  values:
+  - key: option
+    languages:
+    - languageKey: en
+      localized: Options
+    - languageKey: ua
+      localized: "\u041E\u043F\u0446\u0456\u0457"
+  - key: start
+    languages:
+    - languageKey: en
+      localized: Play
+    - languageKey: ua
+      localized: "\u0413\u0440\u0430\u0442\u0438"
+  - key: exit
+    languages:
+    - languageKey: en
+      localized: Exit
+    - languageKey: ua
+      localized: "\u0412\u0438\u0445\u0456\u0434"
+  - key: back
+    languages:
+    - languageKey: en
+      localized: Menu
+    - languageKey: ua
+      localized: "\u041C\u0435\u043D\u044E"
+  - key: gold
+    languages:
+    - languageKey: en
+      localized: 'Gold: {0}'
+    - languageKey: ua
+      localized: "\u0417\u043E\u043B\u043E\u0442\u043E: {0}"
+  - key: cristal
+    languages:
+    - languageKey: en
+      localized: 'Cristal: {0}'
+    - languageKey: ua
+      localized: "\u041A\u0440\u0456\u0441\u0442\u0430\u043B\u0438: {0}"
+  - key: xp
+    languages:
+    - languageKey: en
+      localized: 'XP: {0}'
+    - languageKey: ua
+      localized: "\u041E\u0414: {0}"
