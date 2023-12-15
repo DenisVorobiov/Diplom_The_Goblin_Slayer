@@ -18,7 +18,12 @@ public class CameraControls : MonoBehaviour
     
     void FixedUpdate()
     {
-        float yCamera = mainCamera.transform.rotation.eulerAngles.y;
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, yCamera, 0), turnSpeed*Time.fixedDeltaTime);
+        Vector3 lookDirection = mainCamera.transform.forward;
+        lookDirection.y = 0f; 
+
+        Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
+        float yCamera = targetRotation.eulerAngles.y;
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, yCamera, 0), turnSpeed * Time.fixedDeltaTime);
     }
 }

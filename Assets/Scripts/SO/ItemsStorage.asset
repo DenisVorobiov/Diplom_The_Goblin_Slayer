@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccc01d9661b74fe1b650196566fc0b74, type: 3}
+  m_Name: ItemsStorage
+  m_EditorClassIdentifier: 
+  Items:
+  - Name: Gun
+    Icon: {fileID: 21300000, guid: 5d7061fc7da05ce44add317708ec7215, type: 3}
+    ItemType: 1
+    Armor: 0
+    Damage: 1
+    Description: 
+    ItemPrefab: {fileID: 1138812276527955824, guid: ed84a585dbea1dd43b8265b4a3c8107e, type: 3}
+  - Name: Body
+    Icon: {fileID: 21300000, guid: 2f1eaeeaad36ee5469eff7ff158f37ba, type: 3}
+    ItemType: 2
+    Armor: 10
+    Damage: 0
+    Description: 
+    ItemPrefab: {fileID: 0}
+  - Name: Shoes
+    Icon: {fileID: 21300000, guid: e420c5bc93cb2604695a893500c897e3, type: 3}
+    ItemType: 3
+    Armor: 5
+    Damage: 0
+    Description: 
+    ItemPrefab: {fileID: 0}
+  - Name: Sword
+    Icon: {fileID: 21300000, guid: 5fd50594014b70e48bd6993443d46b32, type: 3}
+    ItemType: 1
+    Armor: 5
+    Damage: 0
+    Description: 
+    ItemPrefab: {fileID: 8701277205744040875, guid: d171639f1f03ff34d9c7e097395631ae, type: 3}
+  - Name: ManaPotion
+    Icon: {fileID: 21300000, guid: 6592b916f86b19e428db6f6847c7b6dd, type: 3}
+    ItemType: 4
+    Armor: 0
+    Damage: 0
+    Description: 
+    ItemPrefab: {fileID: 0}
+  - Name: HealingPotion
+    Icon: {fileID: 21300000, guid: e52ea25af699fd445b7046374f81a5b9, type: 3}
+    ItemType: 5
+    Armor: 0
+    Damage: 0
+    Description: 
+    ItemPrefab: {fileID: 0}

@@ -3,7 +3,17 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovementNew : MonoBehaviour
 {
-    [SerializeField] private PlayerStatsStorage stats;
+    public float moveSpeed;
+    public float groundDrag;
+    public float jumpForce;
+    public float jumpCooldown;
+    public float airMultiplier;
+    public float playerHeight;
+
+    private float multiplication = 10;
+    private float playerPercentage = 0.2f;
+    private float playerPercentagePlus = 0.3f;
+
     public LayerMask whatIsGround;
     public Transform orientation;
     public Rigidbody rb { get; set; }
@@ -30,7 +40,7 @@ public class PlayerMovementNew : MonoBehaviour
         {
             readyToJump = false;
            
-            Invoke(nameof(ResetJump), stats.jumpCooldown);
+            Invoke(nameof(ResetJump), jumpCooldown);
 
             Jump();
 
@@ -51,24 +61,24 @@ public class PlayerMovementNew : MonoBehaviour
     {
         Vector2 movementInput = InputService.Instance.MovementInput;
         Vector3 moveDirection = orientation.forward * movementInput.y + orientation.right * movementInput.x;
-        Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        //Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
         if (grounded)
         {
-            rb.drag = stats.groundDrag;
-            rb.AddForce(moveDirection.normalized * stats.moveSpeed * stats.multiplication, ForceMode.Force);
+            rb.drag = groundDrag;
+            rb.AddForce(moveDirection.normalized * moveSpeed * multiplication, ForceMode.Force);
         }
         else
         {
             rb.drag = 0;
-            rb.AddForce(moveDirection.normalized * stats.moveSpeed * stats.multiplication * stats.airMultiplier, ForceMode.Force);
+            rb.AddForce(moveDirection.normalized * moveSpeed * multiplication * airMultiplier, ForceMode.Force);
         }
     }
 
     public void Jump()
     {
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-        rb.AddForce(transform.up * stats.jumpForce, ForceMode.Impulse);
+        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
         readyToJump = false;
     }
 
@@ -79,7 +89,7 @@ public class PlayerMovementNew : MonoBehaviour
 
     public void Grounded()
     {
-        grounded = Physics.Raycast(transform.position, Vector3.down, stats.playerHeight * stats.playerPercentage + stats.playerPercentagePlus, whatIsGround);
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * playerPercentage + playerPercentagePlus, whatIsGround);
     }
     
 }

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac5d293bd9574d4c9a08b8ce9b60cf5, type: 3}
+  m_Name: EntityStorage
+  m_EditorClassIdentifier: 
+  entityData:
+  - Name: Player
+    Health: 500
+    Speed: 35
+    Prefab: {fileID: 919132149155446097, guid: 7cc9a85ddf805ea45822704bb12c66d1, type: 3}
+  - Name: Enemy
+    Health: 600
+    Speed: 35
+    Prefab: {fileID: 1888013619429098639, guid: 7e9a18e35f341dd4eb7505dce7eff5df, type: 3}
