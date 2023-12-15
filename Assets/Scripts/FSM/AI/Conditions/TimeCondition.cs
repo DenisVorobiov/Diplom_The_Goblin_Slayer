@@ -15,8 +15,9 @@ public class TimeCondition : BaseCondition
     {
         return Time.time - _startTime >= _duration;
     }
+    
     public void InitializeExitTime()
     {
-        throw new System.NotImplementedException();
+        _startTime = Time.time;
     }
 }
