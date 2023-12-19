@@ -17,7 +17,11 @@ MonoBehaviour:
     Health: 500
     Speed: 35
     Prefab: {fileID: 919132149155446097, guid: 7cc9a85ddf805ea45822704bb12c66d1, type: 3}
-  - Name: Enemy
+  - Name: Melee_Enemy
     Health: 600
     Speed: 35
     Prefab: {fileID: 1888013619429098639, guid: 7e9a18e35f341dd4eb7505dce7eff5df, type: 3}
+  - Name: Range_Enemy
+    Health: 500
+    Speed: 35
+    Prefab: {fileID: 7272900932590078632, guid: da09e13c8c486f445b6d37e2bdda9594, type: 3}

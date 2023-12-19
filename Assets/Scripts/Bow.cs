@@ -10,6 +10,7 @@ public class Bow : MonoBehaviour
     public Transform arrowSpawnPoint;
     public float arrowSpeed;
     private ObjectPool<PlayerMovementNew> _bulletsPool;
+  
 
     private void Start()
     {
@@ -23,6 +24,7 @@ public class Bow : MonoBehaviour
 
         bullet.transform.SetPositionAndRotation(arrowSpawnPoint.position, arrowSpawnPoint.rotation);
 
+        
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         rb.velocity = Vector3.zero;
          rb.velocity = arrowSpawnPoint.forward * arrowSpeed;

@@ -11,6 +11,8 @@ public class InputService : MonoBehaviour
     public bool Inventory {  get; private set; }
     public Vector2 MouseInput { get; private set; }
     public bool JumpInput { get; private set; } 
+    public bool Shot { get; private set; }
+    public bool Block { get; private set; }
    
     private void Awake()
     {
@@ -34,7 +36,8 @@ public class InputService : MonoBehaviour
         MouseInput = new Vector2(horizontalM, verticalM);
         MovementInput = new Vector2(horizontal, vertical);
         JumpInput = Input.GetKeyDown(KeyCode.Space);
-        
+        Shot = Input.GetKeyDown(KeyCode.Q);
+        Block = Input.GetKeyDown(KeyCode.Mouse1);
         //Attack
         Fire = Input.GetButtonDown("Fire1");
       

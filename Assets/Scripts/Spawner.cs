@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private EntityInitializer enemyPrefab;
+    [SerializeField] private  List<EntityInitializer> enemyPrefab;
 
     [SerializeField] public int count = 6;
 

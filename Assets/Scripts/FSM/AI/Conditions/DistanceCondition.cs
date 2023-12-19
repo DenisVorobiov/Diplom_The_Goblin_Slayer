@@ -14,6 +14,10 @@
 
         public override bool Evaluate()
         {
+            if (controller.target == null)
+            {
+                return false;
+            }
             var currentDistance = Vector3.Distance(controller.transform.position, controller.target.position);
             return _isLess ? 
                 currentDistance < _distance :

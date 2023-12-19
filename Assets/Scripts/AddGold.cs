@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Timeline;
+﻿
 using UnityEngine;
-using UnityEngine.UI;
 
 public class AddGold : MonoBehaviour
 {
@@ -11,17 +7,18 @@ public class AddGold : MonoBehaviour
    
     private void Start()
     {
-        _Gold.OnAddGold += HandleOnDie;
+        _Gold.OnDead += HandleOnDie;
     }
     public void OnDestroy()
     {
-        _Gold.OnAddGold -= HandleOnDie;
+        _Gold.OnDead -= HandleOnDie;
     }
 
     private void HandleOnDie()
     {
         Currency softCurrency = Context.Instance.CurrencySystem.SoftCurrency;
-        softCurrency.Amount += 100;
+        int randomAmount = UnityEngine.Random.Range(5, 25);
+        softCurrency.Amount += randomAmount;
         
     }
     

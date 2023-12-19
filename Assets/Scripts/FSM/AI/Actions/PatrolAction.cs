@@ -8,6 +8,7 @@ public class PatrolAction : BaseAction
     public PatrolAction(BaseAIController controller) : base(controller)
     {
         currentPatrolIndex = 0;
+        
     }
 
     public override void Execute()

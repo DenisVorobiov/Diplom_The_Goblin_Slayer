@@ -1176,11 +1176,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce16f90dad6b0a342964ca6d012ff876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 500
   specificChildCollider: {fileID: 8422730965730176530}
   animator: {fileID: 5314108715841587953}
   coliderObj: {fileID: 0}
   meshAgent: {fileID: 9060690202599220705}
+  enemyHealthBar: {fileID: 4985085585354487769}
   time: 5
   time2: 10
 --- !u!95 &5314108715841587953
@@ -1260,9 +1260,13 @@ MonoBehaviour:
   StaticPatrolPoints:
   - {fileID: 0}
   patrolPoints: []
+  targetLayerMask:
+    serializedVersion: 2
+    m_Bits: 1088
   aggroRange: 10
   fireRange: 2
   meleeDistance: 1
+  time: 5
 --- !u!195 &9060690202599220705
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1297,7 +1301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b022011a6e131cd4e92e2912b0122975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCollider: {fileID: 8254965541743664078}
+  meleWaponCollider: {fileID: 8254965541743664078}
 --- !u!114 &878972751129949600
 MonoBehaviour:
   m_ObjectHideFlags: 0
