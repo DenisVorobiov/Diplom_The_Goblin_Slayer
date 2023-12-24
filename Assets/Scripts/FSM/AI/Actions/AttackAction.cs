@@ -8,8 +8,8 @@
 
         public override void Execute()
         {
-
-        if (controller.animator != null)
+            
+            if (controller.agent != null && controller.agent.isActiveAndEnabled)
          
              controller.animator.SetTrigger("Attack");
         

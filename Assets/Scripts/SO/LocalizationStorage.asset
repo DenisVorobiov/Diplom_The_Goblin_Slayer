@@ -58,3 +58,9 @@ MonoBehaviour:
       localized: 'XP: {0}'
     - languageKey: ua
       localized: "\u041E\u0414: {0}"
+  - key: lvl
+    languages:
+    - languageKey: en
+      localized: 'Lvl: {0}'
+    - languageKey: ua
+      localized: "\u0420\u0456\u0432\u0435\u043D\u044C: {0}"

@@ -24,18 +24,17 @@ public class ObjectPool<T>
 
     public T GetObject()
     {
-        foreach (var obj in _pool)
+        var inactiveObject = _pool.FirstOrDefault(obj => !obj.gameObject.activeSelf);
+
+        if (inactiveObject != null)
         {
-            if (!obj.gameObject.activeSelf)
-            {
-                obj.gameObject.SetActive(true);
-                return obj;
-            }
+            inactiveObject.gameObject.SetActive(true);
+            return inactiveObject;
         }
 
-        var instance = CreateInstance();
-        instance.gameObject.SetActive(true);
-        return instance;
+        var newInstance = CreateInstance();
+        newInstance.gameObject.SetActive(true);
+        return newInstance;
     }
 
     private T CreateInstance()

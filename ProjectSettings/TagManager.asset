@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Guard
+  - Weapon_Spawn
   layers:
   - Default
   - TransparentFX

@@ -24,7 +24,7 @@ public class InventorySystem : IInventorySystem
         }
 
         
-        var items = Context.Instance.DataSystem.ItemsData;
+         var items = Context.Instance.DataSystem.ItemsData;
         for (int i = 0; i < items.Length; ++i)
         {
             AddItem(new InventoryItem(items[i]));

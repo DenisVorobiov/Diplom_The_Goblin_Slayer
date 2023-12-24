@@ -1,39 +1,34 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 using Random = UnityEngine.Random;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private  List<EntityInitializer> enemyPrefab;
-
+    [SerializeField] private List<EntityInitializer> enemyPrefabs;
     [SerializeField] public int count = 6;
-
     [SerializeField] public List<Transform> SpawnPoints;
-
     [SerializeField] private float patrolRadius = 3.0f;
-
     [SerializeField] private int numberOfPatrolPoints = 5;
-
     [SerializeField] private float time;
 
-    [SerializeField] private ObjectPool<EntityInitializer> _enemyPool;
-
+    private Dictionary<EntityInitializer, ObjectPool<EntityInitializer>> _enemyPools;
     private int countSpawnPoint;
-
 
     private void Start()
     {
-         _enemyPool = new ObjectPool<EntityInitializer>(enemyPrefab,null, count);
+        // Ініціалізуємо словник для зберігання окремих пулів для кожного префабу
+        _enemyPools = new Dictionary<EntityInitializer, ObjectPool<EntityInitializer>>();
+
+        // Заповнюємо словник пулами
+        foreach (var prefab in enemyPrefabs)
+        {
+            _enemyPools[prefab] = new ObjectPool<EntityInitializer>(prefab, null, count);
+        }
 
         StartCoroutine(SpawnEnemy());
     }
-    
-
 
     private IEnumerator SpawnEnemy()
     {
@@ -43,15 +38,24 @@ public class Spawner : MonoBehaviour
             {
                 countSpawnPoint = 0;
             }
-            Transform SpawnPoint = SpawnPoints[countSpawnPoint];//Random.Range(0, SpawnPoints.Count)
-            Vector3 spawnPosition = SpawnPoint.position;
-            Quaternion spawnRotation = SpawnPoint.rotation;
 
-            EntityInitializer enemy = _enemyPool.GetObject();
+            Transform spawnPoint = SpawnPoints[countSpawnPoint];
+            Vector3 spawnPosition = spawnPoint.position;
+            Quaternion spawnRotation = spawnPoint.rotation;
+
+            // Визначаємо індекс унікального префабу
+            int randomIndex = Random.Range(0, enemyPrefabs.Count);
+
+            // Вибираємо префаб за індексом
+            EntityInitializer randomPrefab = enemyPrefabs[randomIndex];
+
+            // Беремо пул для вибраного префабу зі словника
+            ObjectPool<EntityInitializer> pool = _enemyPools[randomPrefab];
+
+            // Отримуємо об'єкт з пулу
+            EntityInitializer enemy = pool.GetObject();
             enemy.transform.position = spawnPosition;
             enemy.transform.rotation = spawnRotation;
-
-            // EntityInitializer enemy = Instantiate(enemyPrefab, spawnPosition, spawnRotation);
 
             List<Vector3> patrolPoints = new List<Vector3>();
             for (int j = 0; j < numberOfPatrolPoints; j++)
@@ -70,9 +74,5 @@ public class Spawner : MonoBehaviour
 
             yield return new WaitForSeconds(time);
         }
-      
-        
     }
-
-
 }

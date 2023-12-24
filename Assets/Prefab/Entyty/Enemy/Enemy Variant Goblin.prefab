@@ -1178,7 +1178,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   specificChildCollider: {fileID: 8422730965730176530}
   animator: {fileID: 5314108715841587953}
-  coliderObj: {fileID: 0}
   meshAgent: {fileID: 9060690202599220705}
   enemyHealthBar: {fileID: 4985085585354487769}
   time: 5
@@ -1239,7 +1238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e837cb3e0593a754baa82260c7cb90cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entityKey: Enemy
+  entityKey: Melee_Enemy
   movement: {fileID: 0}
   health: {fileID: 6241669071782719459}
 --- !u!114 &4545073167306844451
@@ -1255,7 +1254,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 9060690202599220705}
-  target: {fileID: 0}
   animator: {fileID: 5314108715841587953}
   StaticPatrolPoints:
   - {fileID: 0}
@@ -1263,9 +1261,10 @@ MonoBehaviour:
   targetLayerMask:
     serializedVersion: 2
     m_Bits: 1088
+  target: {fileID: 0}
   aggroRange: 10
-  fireRange: 2
-  meleeDistance: 1
+  fireRange: 1
+  meleeDistance: 0.5
   time: 5
 --- !u!195 &9060690202599220705
 NavMeshAgent:
@@ -1301,7 +1300,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b022011a6e131cd4e92e2912b0122975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleWaponCollider: {fileID: 8254965541743664078}
+  weaponObject: {fileID: 1139009292048585456}
+  _isWeaponSlotEmpty: {fileID: 3909577418740132147, guid: bd7b3af6570e8fa4dbc07a3fd5e88bf9, type: 3}
 --- !u!114 &878972751129949600
 MonoBehaviour:
   m_ObjectHideFlags: 0

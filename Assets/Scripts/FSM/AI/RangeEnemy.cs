@@ -1,33 +1,60 @@
-﻿using UnityEngine;
+﻿using FSM.AI.Actions;
+using UnityEngine;
 
 
     public class RangeEnemy : BaseAIController
     {
-        [SerializeField] private float aggroRange = 10f;
-        [SerializeField] private float fireRange = 6f;
+        [SerializeField] private float aggroRange = 15.0f;
+        [SerializeField] private float fireRange = 6.0f;
+        [SerializeField] private float time = 5;
+        [SerializeField] private float KeepDistance = 8;
 
         public override StateMachine<State, object> GetBehaviour()
         {
-            var idleState = new State();
-            var chaseState = new State();
+            var patrulState = new State();
             var fireState = new State();
+            var shaseStates = new State();
+            var stopStates = new State();
 
-            idleState.transitions.Add(
-                new(
-                    chaseState,
+            //patrol
+            patrulState.actions.Add(new PatrolAction(this));
+            patrulState.transitions.Add(
+                new Transition<State, BaseCondition>(
+                    shaseStates,
                     new DistanceCondition(this, aggroRange)));
 
-            chaseState.actions.Add(new GoToTargetAction(this));
-            chaseState.transitions.Add(new(fireState,
-                new DistanceCondition(this, fireRange)));
+            var patrolTimer = new TimeCondition(this, time);
+            patrulState.OnEnter.Add(new LambdaAction(this, () => { patrolTimer.InitializeExitTime(); }));
+            patrulState.transitions.Add(
+                new Transition<State, BaseCondition>(
+                    stopStates, patrolTimer));
 
-            fireState.OnEnter.Add(new LogAction(this, "EnterFireState"));
+            //chase
+            shaseStates.actions.Add(new ChaseState(this));
+            shaseStates.actions.Add(new LookAtAction(this));
+            shaseStates.transitions.Add(new(fireState,
+                new DistanceCondition(this, fireRange)));
+            shaseStates.transitions.Add(
+                new Transition<State, BaseCondition>(
+                    patrulState,
+                    new DistanceCondition(this, aggroRange, false)));
+
+            //fire
             fireState.actions.Add(new AttackAction(this));
-            fireState.actions.Add(new KeepDistance(this, 5f));
-            fireState.transitions.Add(new(chaseState,
+            fireState.actions.Add(new LookAtAction(this));
+            fireState.actions.Add(new KeepDistance(this, KeepDistance));
+            fireState.transitions.Add(new(shaseStates,
                 new DistanceCondition(this, fireRange, false)));
 
 
-            return new StateMachine<State, object>(idleState);
+            //stop
+            stopStates.actions.Add(new StopAction(this));
+            var stopTimer = new TimeCondition(this, time);
+            stopStates.OnEnter.Add(new LambdaAction(this, () => { stopTimer.InitializeExitTime(); }));
+            stopStates.transitions.Add(new Transition<State, BaseCondition>(
+                patrulState, stopTimer));
+
+
+            return new StateMachine<State, object>(patrulState);
         }
     }

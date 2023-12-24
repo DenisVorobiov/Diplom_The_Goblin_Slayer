@@ -7,17 +7,19 @@ using UnityEngine.AI;
 public class Health : MonoBehaviour
 {
     private int maxHealth;
+   
     [SerializeField] private Collider specificChildCollider;
     [SerializeField] private Animator animator;
-    [SerializeField] private Collider coliderObj;
     [SerializeField] private NavMeshAgent meshAgent;
     [SerializeField] private GameObject enemyHealthBar;
+    private bool isShieldRaised = false;
+    private float shieldReductionPercentage = 1f;
+    
     private Vector3 startPosition;
    
     public int CurrentHealth { get; private set; }
     public event Action<int, int> OnDamaged;
     public event Action OnDead;
-    
 
     [SerializeField] public float time;
     [SerializeField] public float time2;
@@ -26,6 +28,15 @@ public class Health : MonoBehaviour
         startPosition = transform.position;
 
     }
+    public void RaiseShield()
+    {
+        isShieldRaised = true;
+    }
+
+    public void LowerShield()
+    {
+        isShieldRaised = false;
+    }
     public void SetHealth(int newHealth)
     {
         CurrentHealth = newHealth;
@@ -33,31 +44,37 @@ public class Health : MonoBehaviour
     }
 
    public void Damage(int damage)
-    {
-        CurrentHealth -= damage;
+   {
+       int actualDamage = damage;
+
+       if (isShieldRaised)
+       {
+           actualDamage = Mathf.RoundToInt(actualDamage * (1 - shieldReductionPercentage));
+       }
+       CurrentHealth -= actualDamage;
         if (CurrentHealth <= 0)
             OnDie();
         OnDamaged?.Invoke(CurrentHealth,maxHealth);
     }
-    private void OnDie()
+   private void OnDie()
     {
         Debug.Log("OnDie called");
         if (tag != "Player") 
             Context.Instance.ScoreSystem.AddScore(100);
+        
         OnDead?.Invoke();
             enemyHealthBar.active = false;
             specificChildCollider.enabled = false;
             animator.enabled = false;
-        //coliderObj.enabled = false;
             meshAgent.enabled = false;
-        //scriptOnOtherObject.enabled = false;
-        StartCoroutine(DisableRoutine());
+            StartCoroutine(DisableRoutine());
     }
     
     private IEnumerator DisableRoutine()
     {
         Debug.Log("DisableRoutine started");
         yield return new WaitForSeconds(time);
+        Respawn();
         gameObject.SetActive(false);
     }
     public void Respawn()
@@ -78,6 +95,6 @@ public class Health : MonoBehaviour
     }
     private void OnDisable()
     {
-        Respawn();
+        
     }
 }

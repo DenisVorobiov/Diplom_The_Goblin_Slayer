@@ -11,9 +11,16 @@
 
         public override void Execute()
         {
-            var direction = controller.target.position - controller.transform.position;
-            direction.Normalize();
-            direction *= _distance;
-            controller.agent.destination = controller.target.position - direction;
+            float _speed = controller.agent.speed = 3.0f;
+            controller.animator.SetFloat("Speed", _speed);
+            
+            if (controller.agent != null && controller.agent.isActiveAndEnabled)
+            {
+                var direction = controller.target.position - controller.transform.position;
+                direction.Normalize();
+                direction *= _distance;
+                controller.agent.destination = controller.target.position - direction;
+            }
+            
         }
     }

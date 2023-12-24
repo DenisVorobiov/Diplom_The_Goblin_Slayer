@@ -1,27 +1,35 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
 public class ObjectInfoDisplay : MonoBehaviour
 {
     public TMP_Text infoText;
-    public float interactionDistance = 3f;
-    public Transform playerCamera;
+    public float interactionDistance = 5f;
+    public Transform infoPoint;
+    private GameObject currentPrefab;
 
+   
     private void Update()
     {
         RaycastHit hit;
-        Ray ray = playerCamera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
+        Ray ray = new Ray(infoPoint.position, infoPoint.forward);
 
         if (Physics.Raycast(ray, out hit, interactionDistance))
         {
-            // Якщо попали в інтерактивний об'єкт
-            DisplayObjectInfo(hit.transform.GetComponent<InteractiveObject>());
+            InteractiveObject interactiveObject = hit.transform.GetComponent<InteractiveObject>();
+            DisplayObjectInfo(interactiveObject);
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                KeyInput(interactiveObject);
+            }
         }
         else
         {
-            // Якщо не попали в інтерактивний об'єкт, приховати текст
             infoText.text = "";
+            currentPrefab = null;
         }
     }
 
@@ -29,8 +37,16 @@ public class ObjectInfoDisplay : MonoBehaviour
     {
         if (interactiveObject != null)
         {
-            // Відобразити інформацію об'єкта в текстовому полі
-            infoText.text = interactiveObject.objectName;
+            infoText.text = interactiveObject.GetObjectInfo();
+        }
+    }
+    public void KeyInput(InteractiveObject interactiveObject)
+    {
+        if (interactiveObject != null)
+        {
+            interactiveObject.InteractWithObject();
+            currentPrefab = interactiveObject.GetInteractionPrefab();
+            Debug.Log("Interacting with object: " + infoText);
         }
     }
 }

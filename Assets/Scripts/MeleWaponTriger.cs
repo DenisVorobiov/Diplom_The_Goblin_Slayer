@@ -1,19 +1,41 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MeleWaponTriger : MonoBehaviour
 {
-    public Collider meleWaponCollider;
-
+    [SerializeField] private GameObject weaponObject;
+    [SerializeField] private PlayerInput _isWeaponSlotEmpty;
     
-    private IEnumerator ActivateColliderAfterDelay()
+    private Collider _collider;
+    private void Awake()
     {
-  
-        meleWaponCollider.enabled = true;
+        UpdateWeaponColliderReference();
+    }
+    
+    
+    public IEnumerator ActivateColliderAfterDelay()
+    {
+        if (_collider != null)
+        {
+            _collider.enabled = true;
 
-        yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.5f);
 
-        meleWaponCollider.enabled = false;
+            _collider.enabled = false;
+        }
+       
+    }
+    public void UpdateWeaponColliderReference()
+    {
+        
+        _collider = weaponObject?.GetComponentInChildren<Collider>(true);
+
+        if (_collider == null)
+        {
+            Debug.LogWarning("Collider not found on the weapon object or its children.");
+        }
+        _isWeaponSlotEmpty.isWeaponSlotEmpty = ( _collider == null );
     }
 }

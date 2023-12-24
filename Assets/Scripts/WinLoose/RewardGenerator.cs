@@ -6,16 +6,7 @@ public class RewardGenerator : MonoBehaviour
 {
     
     public GameObject objectToClose;
-
-    private void Start()
-    {
-        
-        //  if (objectToClose == null)
-        //{
-         //   Debug.LogError("Object to close is not assigned to the button!");
-       // }
-
-    }
+    
     public void GetReward(string lootKey)
     {
         LootCollection[] lootCollections = Context.Instance.DataSystem.LootData;

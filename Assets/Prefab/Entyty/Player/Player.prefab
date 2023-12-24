@@ -3001,7 +3001,7 @@ PrefabInstance:
     - target: {fileID: 5237088169036136147, guid: 53f73de9f89b58942b3bfb73c8fc6b38, type: 3}
       propertyPath: movement
       value: 
-      objectReference: {fileID: 11400000, guid: f71bf91e419cbbb469fda1e7a7562588, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 5237088169036136147, guid: 53f73de9f89b58942b3bfb73c8fc6b38, type: 3}
       propertyPath: entityKey
       value: Player
@@ -3121,7 +3121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18716a00be3d4a1dbe65bde04fa3494b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Inventoru: {fileID: 0}
+  InventoruList: []
+  _triger: {fileID: -3629671898725778638, guid: 1e1ea3464397c0f43af0476378e7b658, type: 3}
 --- !u!114 &4314434888982404279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3134,7 +3135,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4579cbfb715aca4c938a86852a2648a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: f71bf91e419cbbb469fda1e7a7562588, type: 2}
+  moveSpeed: 0
+  groundDrag: 0
+  jumpForce: 0
+  jumpCooldown: 0
+  airMultiplier: 0
+  playerHeight: 0
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
