@@ -7,9 +7,9 @@ public class EnergySystem : MonoBehaviour
     [SerializeField] private int maxEnergy = 100;
     private int currentEnergy;
 
-    public float energyRestoreRate = 5.0f; // Кількість одиниць енергії, яка відновлюється кожну секунду
+    public float energyRestoreRate = 5.0f; 
     public int CurrentEnergy { get; private set; }
-    // Подія, яка викликається при зміні енергії
+   
     public event Action<int, int> OnEnergyChanged;
 
     private void Start()
@@ -36,11 +36,11 @@ public class EnergySystem : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(1.0f); // Чекаємо 1 секунду
+            yield return new WaitForSeconds(1.0f); 
 
             if (CurrentEnergy < maxEnergy)
             {
-                CurrentEnergy += Mathf.RoundToInt(energyRestoreRate); // Округляємо вверх, якщо потрібно
+                CurrentEnergy += Mathf.RoundToInt(energyRestoreRate); 
                 CurrentEnergy = Mathf.Min(CurrentEnergy, maxEnergy);
 
                 OnEnergyChanged?.Invoke(CurrentEnergy, maxEnergy);

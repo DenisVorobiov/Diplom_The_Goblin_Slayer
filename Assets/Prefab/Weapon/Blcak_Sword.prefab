@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageTag:
   - Enemy
-  damage: 150
+  damage: 90
 --- !u!136 &-6339437969582384612
 CapsuleCollider:
   m_ObjectHideFlags: 0

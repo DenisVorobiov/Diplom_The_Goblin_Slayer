@@ -20,6 +20,7 @@ public class EquipSlotView : MonoBehaviour
         slot.OnSlotChanged += Weapon;
         slot.OnSlotChanged += Dagger;
         slot.OnSlotChanged += Shild;
+        slot.OnSlotChanged += RecoverHp;
     }
 
     public void DisplayItem()
@@ -55,7 +56,7 @@ public class EquipSlotView : MonoBehaviour
     {
         if (!_slot.IsEmpty)
         {
-            if (_slot.SlotType == ItemType.Boots)
+            if (_slot.SlotType == ItemType.Dagger)
             {
                 _input.isDaggerSlotEmpty = false;
             }
@@ -67,16 +68,30 @@ public class EquipSlotView : MonoBehaviour
     }
     public void Shild()
     {
-        if (!_slot.IsEmpty&&_slot.SlotType == ItemType.Chest)
+        if (!_slot.IsEmpty&&_slot.SlotType == ItemType.Shild)
         {
-            if (_slot.SlotType == ItemType.Chest)
+            if (_slot.SlotType == ItemType.Shild)
             {
                 _input.isShieldSlotEmpty = false;
             }
         }
-        else if (_slot.IsEmpty&&_slot.SlotType == ItemType.Chest)
+        else if (_slot.IsEmpty&&_slot.SlotType == ItemType.Shild)
         {
             _input.isShieldSlotEmpty = true;
+        }
+    }
+    public void RecoverHp()
+    {
+        if (!_slot.IsEmpty&&_slot.SlotType == ItemType.HealingPotion)
+        {
+            if (_slot.SlotType == ItemType.HealingPotion)
+            {
+                _input.isHpdSlotEmpty = false;
+            }
+        }
+        else if (_slot.IsEmpty&&_slot.SlotType == ItemType.HealingPotion)
+        {
+            _input.isHpdSlotEmpty = true;
         }
     }
 
@@ -84,7 +99,8 @@ public class EquipSlotView : MonoBehaviour
     {
         _slot.OnSlotChanged -= DisplayItem;
         _slot.OnSlotChanged -= Weapon;
-        _slot.OnSlotChanged += Dagger;
-        _slot.OnSlotChanged += Shild;
+        _slot.OnSlotChanged -= Dagger;
+        _slot.OnSlotChanged -= Shild;
+        _slot.OnSlotChanged -= RecoverHp;
     }
 }

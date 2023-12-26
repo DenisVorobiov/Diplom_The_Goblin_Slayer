@@ -13,7 +13,23 @@ MonoBehaviour:
   m_Name: ShopItemsStorage
   m_EditorClassIdentifier: 
   Items:
-  - ItemName: Gun
-    Price: 10
-  - ItemName: Body
+  - ItemName: Old_Shild
+    Price: 150
+  - ItemName: Old_Sword
+    Price: 50
+  - ItemName: Old_Dagger
+    Price: 250
+  - ItemName: Iron_Shild
+    Price: 500
+  - ItemName: Iron_Sword
+    Price: 250
+  - ItemName: Iron_Dagger
+    Price: 600
+  - ItemName: Blac_Shild
+    Price: 800
+  - ItemName: Blac_Sword
+    Price: 1000
+  - ItemName: Black_Dagger
+    Price: 1500
+  - ItemName: HealingPotion
     Price: 50

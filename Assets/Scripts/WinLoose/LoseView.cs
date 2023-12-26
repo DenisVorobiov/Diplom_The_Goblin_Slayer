@@ -13,6 +13,10 @@ public class LoseView : MonoBehaviour
     private void OnHealthChanged(int current, int max)
     {
         if (current <= 0)
-            Context.Instance.AppSystem.Trigger(AppTrigger.ToLooseScreen);
+        {
+            Context.Instance.AppSystem.Trigger(AppTrigger.ToMainMenu);
+            PlayerPrefs.DeleteAll();
+        }
+           
     }
 }

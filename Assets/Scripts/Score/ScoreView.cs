@@ -25,6 +25,7 @@ public class ScoreView : MonoBehaviour
     }
     private void OnDestroy()
     {
+        Context.Instance.ScoreSystem.OnlvlUP -= OnLvling;
         Context.Instance.ScoreSystem.OnScoreChanged -= OnScore;
     }
 }

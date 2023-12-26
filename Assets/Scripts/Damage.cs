@@ -19,7 +19,6 @@ public class Damage : MonoBehaviour
                 if (health != null)
                 {
                     health.Damage(damage);
-                    //gameObject.SetActive(false);
                 }
             }
         }

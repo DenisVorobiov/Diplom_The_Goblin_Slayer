@@ -2,8 +2,8 @@
 {
     All,
     Weapon,
-    Chest,
-    Boots,
+    Shild,
+    Dagger,
     ManaPotion,
     HealingPotion
 }

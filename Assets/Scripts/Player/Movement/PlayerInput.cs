@@ -11,10 +11,12 @@ public class PlayerInput : MonoBehaviour
     private Animator animator;
     public List<GameObject> InventoruList;
     private Health playerHealth;
+    private Recovery _recovery;
     
     public bool isWeaponSlotEmpty = true;
     public bool isDaggerSlotEmpty = true;
     public bool isShieldSlotEmpty = true;
+    public bool isHpdSlotEmpty = true;
     private bool isShooting = false;
     private bool isBlocking = false;
     
@@ -27,11 +29,14 @@ public class PlayerInput : MonoBehaviour
         playerMovement = GetComponent<PlayerMovementNew>();
         animator = GetComponent<Animator>();
         playerHealth = GetComponent<Health>();
+        _recovery = GetComponent<Recovery>();
+
     }
 
     private void Update()
     {
         var energy = gameObject.GetComponent<EnergySystem>();
+        //Recovery recovery = gameObject.AddComponent<Recovery>();
         Vector2 movementInput = InputService.Instance.MovementInput;
         
         animator.SetFloat("inputX", movementInput.x);
@@ -85,6 +90,13 @@ public class PlayerInput : MonoBehaviour
                 energy.Actions(EnergyShot);
             }
         }
+        
+        
+        if (Input.GetKeyDown(KeyCode.Alpha1)&& !isHpdSlotEmpty)
+        {
+            _recovery.Use();
+        }
+        
 
         if (InputService.Instance.Inventory)
         {

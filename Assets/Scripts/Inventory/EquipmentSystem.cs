@@ -30,6 +30,8 @@ public class EquipmentSystem : IEquipmentSystem
                 new InventorySlot() {},
                 new InventorySlot() {},
                 new InventorySlot() {},
+                new InventorySlot() {},
+                new InventorySlot() {},
             };
         }
         else
@@ -38,8 +40,11 @@ public class EquipmentSystem : IEquipmentSystem
         }
 
         Slots[0].SlotType = ItemType.Weapon;
-        Slots[1].SlotType = ItemType.Chest;
-        Slots[2].SlotType = ItemType.Boots;
+        Slots[1].SlotType = ItemType.Shild;
+        Slots[2].SlotType = ItemType.Dagger;
+        Slots[3].SlotType = ItemType.HealingPotion;
+        Slots[4].SlotType = ItemType.ManaPotion;
+        
     }
 
     public void Save()

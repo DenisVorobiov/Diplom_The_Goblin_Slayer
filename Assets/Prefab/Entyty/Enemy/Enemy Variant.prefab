@@ -265,6 +265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageTag:
   - Player
+  - Guard
   damage: 50
 --- !u!4 &4228517622669890630 stripped
 Transform:

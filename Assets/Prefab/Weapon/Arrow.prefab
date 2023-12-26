@@ -101,7 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageTag:
   - Player
-  damage: 50
+  - Guard
+  damage: 10
 --- !u!114 &9196219529186945515
 MonoBehaviour:
   m_ObjectHideFlags: 0

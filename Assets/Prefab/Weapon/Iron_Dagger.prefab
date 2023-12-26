@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageTag:
   - Enemy
-  damage: 50
+  damage: 35
 --- !u!114 &1884392626354607149
 MonoBehaviour:
   m_ObjectHideFlags: 0

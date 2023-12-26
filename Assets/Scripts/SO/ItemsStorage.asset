@@ -33,14 +33,14 @@ MonoBehaviour:
     Armor: 0
     Damage: 0
     Description: 
-    ItemPrefab: {fileID: 0}
+    ItemPrefab: {fileID: 6894862214880021892, guid: 5fdb9ba3c54d6ad478a577f9d75cf700, type: 3}
   - Name: HealingPotion
     Icon: {fileID: 21300000, guid: e52ea25af699fd445b7046374f81a5b9, type: 3}
     ItemType: 5
     Armor: 0
     Damage: 0
     Description: 
-    ItemPrefab: {fileID: 0}
+    ItemPrefab: {fileID: 6894862214880021892, guid: b1b0497adba81c84eb05a028b8280825, type: 3}
   - Name: Old_Dagger
     Icon: {fileID: 21300000, guid: c51afa706b02a044694b30f33f81d239, type: 3}
     ItemType: 3
@@ -48,3 +48,45 @@ MonoBehaviour:
     Damage: 0
     Description: 
     ItemPrefab: {fileID: 1065635748203608231, guid: e041113abe72fe2459c9f3517f18fd8b, type: 3}
+  - Name: Iron_Sword
+    Icon: {fileID: 21300000, guid: 5fd50594014b70e48bd6993443d46b32, type: 3}
+    ItemType: 1
+    Armor: 0
+    Damage: 0
+    Description: 
+    ItemPrefab: {fileID: 4577390184638117946, guid: f468f89ff7549e8488af25cedaf27cd2, type: 3}
+  - Name: Iron_Shild
+    Icon: {fileID: 21300000, guid: b97c91e8b348f3f4ebdc11f5c82182cd, type: 3}
+    ItemType: 2
+    Armor: 0
+    Damage: 0
+    Description: 
+    ItemPrefab: {fileID: 312710581597121396, guid: 0789ea8543693654c9efcce023d8bb1e, type: 3}
+  - Name: Iron_Dagger
+    Icon: {fileID: 21300000, guid: c51afa706b02a044694b30f33f81d239, type: 3}
+    ItemType: 3
+    Armor: 0
+    Damage: 0
+    Description: 
+    ItemPrefab: {fileID: 7336080950642441864, guid: 851819724e9d2e34f91fae4e1ebd79d8, type: 3}
+  - Name: Black_Sword
+    Icon: {fileID: 21300000, guid: 5fd50594014b70e48bd6993443d46b32, type: 3}
+    ItemType: 1
+    Armor: 0
+    Damage: 0
+    Description: 
+    ItemPrefab: {fileID: 1132151753398985252, guid: 1e1ea3464397c0f43af0476378e7b658, type: 3}
+  - Name: Black_Shild
+    Icon: {fileID: 21300000, guid: b97c91e8b348f3f4ebdc11f5c82182cd, type: 3}
+    ItemType: 2
+    Armor: 0
+    Damage: 0
+    Description: 
+    ItemPrefab: {fileID: 4927099472840616119, guid: 3c4540ed61cbd324ba68b44fc9b5ba17, type: 3}
+  - Name: Black_Dagger
+    Icon: {fileID: 21300000, guid: c51afa706b02a044694b30f33f81d239, type: 3}
+    ItemType: 3
+    Armor: 0
+    Damage: 0
+    Description: 
+    ItemPrefab: {fileID: 6173937766801138876, guid: 7e5e7ce7d3c54f6418c079a95f2a4403, type: 3}
