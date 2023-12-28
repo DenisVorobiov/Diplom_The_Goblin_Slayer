@@ -15,7 +15,6 @@ public class Recovery : MonoBehaviour
         if (Time.time - lastUsageTime >= cooldownTime)
         {
             Recover();
-           
             OnRecover?.Invoke();
             // Destroy(gameObject);
             lastUsageTime = Time.time;

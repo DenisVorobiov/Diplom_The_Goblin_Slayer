@@ -27,72 +27,42 @@ public class EquipSlotView : MonoBehaviour
     {
         //Destroy
         if (_container != null)
-        {
             Destroy(_container);
-        }
+        
         //Spawn
         if (!_slot.IsEmpty)
-        {
             _container = Instantiate(_slot.Item.ItemData.ItemPrefab, _root);
-          
-        }
     }
     public void Weapon()
     {
         if (!_slot.IsEmpty&&_slot.SlotType == ItemType.Weapon)
         {
-            if (_slot.SlotType == ItemType.Weapon)
-            {
-                _triger.UpdateWeaponColliderReference();
+            _triger.UpdateWeaponColliderReference();
                 _input.isWeaponSlotEmpty = false;
-            }
         }
-        else if (_slot.IsEmpty&&_slot.SlotType == ItemType.Weapon)
-        {
+        else
             _input.isWeaponSlotEmpty = true;
-        }
     }
     public void Dagger()
     {
-        if (!_slot.IsEmpty)
-        {
-            if (_slot.SlotType == ItemType.Dagger)
-            {
-                _input.isDaggerSlotEmpty = false;
-            }
-        }
-        else 
-        {
+        if (!_slot.IsEmpty&&_slot.SlotType == ItemType.Dagger)
+            _input.isDaggerSlotEmpty = false;
+        else
             _input.isDaggerSlotEmpty = true;
-        }
     }
     public void Shild()
     {
         if (!_slot.IsEmpty&&_slot.SlotType == ItemType.Shild)
-        {
-            if (_slot.SlotType == ItemType.Shild)
-            {
-                _input.isShieldSlotEmpty = false;
-            }
-        }
-        else if (_slot.IsEmpty&&_slot.SlotType == ItemType.Shild)
-        {
+            _input.isShieldSlotEmpty = false;
+        else
             _input.isShieldSlotEmpty = true;
-        }
     }
     public void RecoverHp()
     {
         if (!_slot.IsEmpty&&_slot.SlotType == ItemType.HealingPotion)
-        {
-            if (_slot.SlotType == ItemType.HealingPotion)
-            {
-                _input.isHpdSlotEmpty = false;
-            }
-        }
-        else if (_slot.IsEmpty&&_slot.SlotType == ItemType.HealingPotion)
-        {
+            _input.isHpdSlotEmpty = false;
+        else
             _input.isHpdSlotEmpty = true;
-        }
     }
 
     public void OnDestroy()

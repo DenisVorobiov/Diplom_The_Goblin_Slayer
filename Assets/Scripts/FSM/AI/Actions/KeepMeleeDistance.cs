@@ -16,7 +16,6 @@ public class KeepMeleeDistance : BaseAction
         if (controller.agent != null && controller.agent.isActiveAndEnabled)
         {
             controller.agent.destination = controller.transform.position;
-            
         }
     }
 }

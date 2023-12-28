@@ -1,6 +1,5 @@
 public interface IItemBarSystem
 {
-    
     public InventorySlot[] Slots { get; }
 }
 
@@ -11,7 +10,6 @@ public class ItemBarSystem : IItemBarSystem
 
     public ItemBarSystem()
     {
-       
         Slots = new[]
         {
             new InventorySlot() {SlotType = ItemType.ManaPotion},

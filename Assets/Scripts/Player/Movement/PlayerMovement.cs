@@ -17,7 +17,6 @@ public class PlayerMovementNew : MonoBehaviour
     public LayerMask whatIsGround;
     public Transform orientation;
     public Rigidbody rb { get; set; }
-
     public bool grounded { get; private set; }
     public bool readyToJump { get; private set; }
     // public Vector2 Direction { get; set; } //!
@@ -28,7 +27,6 @@ public class PlayerMovementNew : MonoBehaviour
     }
     private void Start()
     {
-        
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         readyToJump = true;
@@ -39,11 +37,8 @@ public class PlayerMovementNew : MonoBehaviour
         if (grounded && readyToJump)
         {
             readyToJump = false;
-           
-            Invoke(nameof(ResetJump), jumpCooldown);
-
-            Jump();
-
+                 Invoke(nameof(ResetJump), jumpCooldown);
+                    Jump();
         }
     }
 
@@ -78,8 +73,8 @@ public class PlayerMovementNew : MonoBehaviour
     public void Jump()
     {
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-        readyToJump = false;
+            rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+                readyToJump = false;
     }
 
     private void ResetJump()

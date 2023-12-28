@@ -28,7 +28,6 @@ public class ChaseState : BaseAction
 
                 if (distanceToPlayer > returnDistance)
                 {
-                    
                     controller.agent.SetDestination(controller.transform.position);
                 }
             }

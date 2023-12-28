@@ -4,6 +4,7 @@ public class StatickPoint : BaseAction
 {
     public StatickPoint(BaseAIController controller) : base(controller)
     {
+        
     }
 
     public override void Execute()
@@ -12,10 +13,7 @@ public class StatickPoint : BaseAction
         controller.animator.SetFloat("Speed",_speed);
         
         if (controller.agent != null && controller.agent.isActiveAndEnabled)
-        {
             controller.agent.SetDestination(controller.transform.position);
-        }
-        
     }
 
   

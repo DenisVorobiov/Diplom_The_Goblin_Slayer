@@ -18,7 +18,6 @@ public class EquipmentView : MonoBehaviour
                 slotsData[i],
                 _onDragRoot,
                 _slotsObserver);
-
         }
     }
 }

@@ -15,9 +15,8 @@ public class LookAtAction : BaseAction
         controller.animator.SetFloat("Speed", _speed);
         
         if (controller.agent != null && controller.agent.isActiveAndEnabled)
-        {
             controller.transform.LookAt(controller.target);
-        }
+        
         
     }
 }
