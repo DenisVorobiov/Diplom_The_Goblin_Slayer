@@ -56,7 +56,7 @@ public class ScoreView : MonoBehaviour
     
     private void UpdateText()
     {
-        // Оновлення тексту для кількості очок і кількості очок до наступного рівня
+        // Update the text for the number of points and the number of points to the next level
         _nextLevelScoreText.text = $"{Context.Instance.ScoreSystem.ScoreToNextLvl}";
     }
 
