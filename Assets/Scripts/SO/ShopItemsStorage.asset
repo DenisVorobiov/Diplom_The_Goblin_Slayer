@@ -15,21 +15,31 @@ MonoBehaviour:
   Items:
   - ItemName: Old_Shild
     Price: 150
+    Sprite: {fileID: 21300000, guid: b97c91e8b348f3f4ebdc11f5c82182cd, type: 3}
   - ItemName: Old_Sword
     Price: 50
+    Sprite: {fileID: 21300000, guid: 5fd50594014b70e48bd6993443d46b32, type: 3}
   - ItemName: Old_Dagger
     Price: 250
+    Sprite: {fileID: 0}
   - ItemName: Iron_Shild
     Price: 500
+    Sprite: {fileID: 0}
   - ItemName: Iron_Sword
     Price: 250
+    Sprite: {fileID: 0}
   - ItemName: Iron_Dagger
     Price: 600
+    Sprite: {fileID: 0}
   - ItemName: Blac_Shild
     Price: 800
+    Sprite: {fileID: 0}
   - ItemName: Blac_Sword
     Price: 1000
+    Sprite: {fileID: 0}
   - ItemName: Black_Dagger
     Price: 1500
+    Sprite: {fileID: 0}
   - ItemName: HealingPotion
     Price: 50
+    Sprite: {fileID: 0}

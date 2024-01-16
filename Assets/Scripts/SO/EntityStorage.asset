@@ -15,7 +15,7 @@ MonoBehaviour:
   entityData:
   - Name: Player
     Health: 200
-    Speed: 35
+    Speed: 4
     Prefab: {fileID: 919132149155446097, guid: 7cc9a85ddf805ea45822704bb12c66d1, type: 3}
   - Name: Melee_Enemy
     Health: 125

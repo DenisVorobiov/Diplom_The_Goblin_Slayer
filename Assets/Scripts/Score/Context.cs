@@ -40,7 +40,7 @@ public class Context
            localizationStorage);
 
         Instance.SaveSystem = new SaveSystem();
-        Instance.ScoreSystem = new ScoreSystem();
+        Instance.ScoreSystem = new ScoreSystem(200,1);
         Instance.AppSystem = new AppSystem();
         Instance.WinSystem = new WinSystem();
         Instance.InventorySystem = new InventorySystem();

@@ -44,14 +44,17 @@ public class PlayerInput : MonoBehaviour
             
                      playerMovement.HandleJumpInput();
         }
-        
-    if(!isInventoryOpen)
-        if (energy != null && energy.CurrentEnergy >= EnergyAttack)
-            if (Input.GetButtonDown("Fire1") && !isWeaponSlotEmpty)
-            {
-                animator.SetTrigger("Attack");
+
+        if (!isInventoryOpen)
+        {
+            if (energy != null && energy.CurrentEnergy >= EnergyAttack)
+                if (Input.GetButtonDown("Fire1") && !isWeaponSlotEmpty)
+                {
+                    animator.SetTrigger("Attack");
                     energy.Actions(EnergyAttack);
-            }
+                }
+        }
+       
     
         if (energy != null && energy.CurrentEnergy >= EnergyBlock)
             if (Input.GetKeyDown(KeyCode.Mouse1) && !isShieldSlotEmpty)

@@ -37,31 +37,54 @@ public class EquipSlotView : MonoBehaviour
     {
         if (!_slot.IsEmpty&&_slot.SlotType == ItemType.Weapon)
         {
-            _triger.UpdateWeaponColliderReference();
+            if (_slot.SlotType == ItemType.Weapon)
+            {
+                _triger.UpdateWeaponColliderReference();
                 _input.isWeaponSlotEmpty = false;
+            }
+           
         }
-        else
+        else if (_slot.IsEmpty && _slot.SlotType == ItemType.Weapon)
+        {
             _input.isWeaponSlotEmpty = true;
+            _triger.UpdateWeaponColliderReference();
+        }
+            
     }
     public void Dagger()
     {
-        if (!_slot.IsEmpty&&_slot.SlotType == ItemType.Dagger)
-            _input.isDaggerSlotEmpty = false;
-        else
+        if (!_slot.IsEmpty && _slot.SlotType == ItemType.Dagger)
+        {
+            if (_slot.SlotType == ItemType.Dagger)
+            {
+                _input.isDaggerSlotEmpty = false;
+            }
+        }
+        else if (_slot.IsEmpty && _slot.SlotType == ItemType.Dagger)
             _input.isDaggerSlotEmpty = true;
+            
+            
     }
     public void Shild()
     {
-        if (!_slot.IsEmpty&&_slot.SlotType == ItemType.Shild)
-            _input.isShieldSlotEmpty = false;
-        else
+        if (!_slot.IsEmpty && _slot.SlotType == ItemType.Shild)
+        {
+            if(_slot.SlotType == ItemType.Shild)
+                _input.isShieldSlotEmpty = false;
+        }
+          
+        else  if (_slot.IsEmpty&&_slot.SlotType == ItemType.Shild)
             _input.isShieldSlotEmpty = true;
     }
     public void RecoverHp()
     {
-        if (!_slot.IsEmpty&&_slot.SlotType == ItemType.HealingPotion)
-            _input.isHpdSlotEmpty = false;
-        else
+        if (!_slot.IsEmpty && _slot.SlotType == ItemType.HealingPotion)
+        {
+            if(_slot.SlotType == ItemType.HealingPotion)
+                _input.isHpdSlotEmpty = false;
+        }
+        
+        else  if (_slot.IsEmpty&&_slot.SlotType == ItemType.HealingPotion)
             _input.isHpdSlotEmpty = true;
     }
 

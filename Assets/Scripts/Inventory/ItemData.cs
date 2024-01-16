@@ -1,6 +1,7 @@
 ﻿using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 [Serializable]
 public class ItemData
@@ -12,4 +13,5 @@ public class ItemData
     public int Damage;
     public string Description;
     public GameObject ItemPrefab;
+    public Collider collider;
 }

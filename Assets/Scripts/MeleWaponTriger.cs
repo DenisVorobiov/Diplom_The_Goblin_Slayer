@@ -9,7 +9,7 @@ public class MeleWaponTriger : MonoBehaviour
     [SerializeField] private PlayerInput _isWeaponSlotEmpty;
     
     private Collider _collider;
-    private void Awake()
+    private void Update()
     {
         UpdateWeaponColliderReference();
     }

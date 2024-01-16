@@ -26,6 +26,9 @@ public class LocalizedTextView : MonoBehaviour
             _text.text = Context.Instance.LocalizationSystem.GetValue(key);
         else
             _text.text = string.Format(Context.Instance.LocalizationSystem.GetValue(key), _parameters);
+        
+        //_text.text = _parameters == null ? Context.Instance.LocalizationSystem.GetValue(key) 
+        //: string.Format(Context.Instance.LocalizationSystem.GetValue(key), _parameters);
     }
 
     public void SetParameters(object[] parameters)
