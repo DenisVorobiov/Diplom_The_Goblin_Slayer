@@ -9,6 +9,8 @@ public class MeleeEnemy : BaseAIController
     [SerializeField] private float fireRange = 1.0f;
     [SerializeField] private float meleeDistance = 0.5f;
     [SerializeField] private float time = 5;
+    [SerializeField] private float look_speed = 3;
+    
     
 
     public override StateMachine<State, object> GetBehaviour()
@@ -34,7 +36,7 @@ public class MeleeEnemy : BaseAIController
 
         //chase
         shaseStates.actions.Add(new ChaseState(this));
-        shaseStates.actions.Add(new LookAtAction(this));
+        shaseStates.actions.Add(new LookAtAction(this,look_speed));
         shaseStates.transitions.Add(new(fireState,
             new DistanceCondition(this, fireRange)));
         shaseStates.transitions.Add(
@@ -44,7 +46,7 @@ public class MeleeEnemy : BaseAIController
 
         //fire
         fireState.actions.Add(new AttackAction(this));
-        fireState.actions.Add(new LookAtAction(this));
+        fireState.actions.Add(new LookAtAction(this,look_speed));
         fireState.actions.Add(new KeepMeleeDistance(this, meleeDistance));
         fireState.transitions.Add(new(shaseStates,
             new DistanceCondition(this, fireRange, false)));

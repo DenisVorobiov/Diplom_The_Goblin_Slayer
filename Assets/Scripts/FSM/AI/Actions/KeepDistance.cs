@@ -11,7 +11,7 @@
 
         public override void Execute()
         {
-            float _speed = controller.agent.speed = 3.0f;
+            float _speed = controller.agent.speed = 2.0f;
             controller.animator.SetFloat("Speed", _speed);
             
             if (controller.agent != null && controller.agent.isActiveAndEnabled)

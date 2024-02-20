@@ -3,15 +3,16 @@
 public class LookAtAction : BaseAction
 {
     private float _distance;
+    private float _sspeed;
 
-    public LookAtAction(BaseAIController controller) : base(controller)
+    public LookAtAction(BaseAIController controller, float speed) : base(controller)
     {
-       
+        _sspeed = speed;
     }
 
     public override void Execute()
     {
-        float _speed = controller.agent.speed = 3.0f;
+        float _speed = controller.agent.speed = _sspeed;
         controller.animator.SetFloat("Speed", _speed);
         
         if (controller.agent != null && controller.agent.isActiveAndEnabled)

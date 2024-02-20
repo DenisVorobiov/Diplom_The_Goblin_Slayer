@@ -8,6 +8,7 @@ public class Guard : BaseAIController
     [SerializeField] private float aggroRange = 15.0f;
     [SerializeField] private float fireRange = 1.0f;
     [SerializeField] private float meleeDistance = 0.5f;
+    [SerializeField] private float look_speed = 3;
    
     public override StateMachine<State, object> GetBehaviour()
     {
@@ -25,7 +26,7 @@ public class Guard : BaseAIController
 
         //chase
         shaseStates.actions.Add(new ChaseState(this));
-        shaseStates.actions.Add(new LookAtAction(this));
+        shaseStates.actions.Add(new LookAtAction(this,look_speed));
         shaseStates.transitions.Add(new(fireState,
             new DistanceCondition(this, fireRange)));
         shaseStates.transitions.Add(
@@ -35,7 +36,7 @@ public class Guard : BaseAIController
 
         //fire
         fireState.actions.Add(new AttackAction(this));
-        fireState.actions.Add(new LookAtAction(this));
+        fireState.actions.Add(new LookAtAction(this,look_speed));
         fireState.actions.Add(new KeepMeleeDistance(this, meleeDistance));
         fireState.transitions.Add(new(shaseStates,
             new DistanceCondition(this, fireRange, false)));

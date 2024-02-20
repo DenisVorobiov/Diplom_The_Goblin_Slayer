@@ -7,7 +7,8 @@ using UnityEngine;
         [SerializeField] private float aggroRange = 15.0f;
         [SerializeField] private float fireRange = 6.0f;
         [SerializeField] private float time = 5;
-        [SerializeField] private float KeepDistance = 8;
+        [SerializeField] private float keepDistance = 6;
+        [SerializeField] private float look_speed = 1;
 
         public override StateMachine<State, object> GetBehaviour()
         {
@@ -31,7 +32,7 @@ using UnityEngine;
 
             //chase
             shaseStates.actions.Add(new ChaseState(this));
-            shaseStates.actions.Add(new LookAtAction(this));
+            shaseStates.actions.Add(new LookAtAction(this,look_speed));
             shaseStates.transitions.Add(new(fireState,
                 new DistanceCondition(this, fireRange)));
             shaseStates.transitions.Add(
@@ -41,8 +42,8 @@ using UnityEngine;
 
             //fire
             fireState.actions.Add(new AttackAction(this));
-            fireState.actions.Add(new LookAtAction(this));
-            fireState.actions.Add(new KeepDistance(this, KeepDistance));
+            fireState.actions.Add(new LookAtAction(this,look_speed));
+            fireState.actions.Add(new KeepDistance(this, keepDistance));
             fireState.transitions.Add(new(shaseStates,
                 new DistanceCondition(this, fireRange, false)));
 

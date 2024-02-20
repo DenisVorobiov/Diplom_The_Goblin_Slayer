@@ -254,7 +254,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 585634042815589607, guid: 7e9a18e35f341dd4eb7505dce7eff5df, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 878972751129949600, guid: 7e9a18e35f341dd4eb7505dce7eff5df, type: 3}
       propertyPath: _input
@@ -460,7 +460,8 @@ MonoBehaviour:
   aggroRange: 15
   fireRange: 10
   time: 2
-  KeepDistance: 8
+  keepDistance: 6
+  look_speed: 1
 --- !u!114 &5003665420667803531
 MonoBehaviour:
   m_ObjectHideFlags: 0
