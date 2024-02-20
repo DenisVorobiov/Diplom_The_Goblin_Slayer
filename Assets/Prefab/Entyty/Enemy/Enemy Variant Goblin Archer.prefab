@@ -288,6 +288,10 @@ PrefabInstance:
       propertyPath: _ShieldRaised
       value: 
       objectReference: {fileID: 3909577418740132147, guid: bd7b3af6570e8fa4dbc07a3fd5e88bf9, type: 3}
+    - target: {fileID: 6540254846019702807, guid: 7e9a18e35f341dd4eb7505dce7eff5df, type: 3}
+      propertyPath: m_text
+      value: Goblin-archer
+      objectReference: {fileID: 0}
     - target: {fileID: 6612540063735349469, guid: 7e9a18e35f341dd4eb7505dce7eff5df, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

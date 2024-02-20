@@ -4894,6 +4894,10 @@ PrefabInstance:
       propertyPath: m_FillAmount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4716286585690902302, guid: 8cfd7e1e998aec34794699751c29f3de, type: 3}
+      propertyPath: m_text
+      value: Goblin
+      objectReference: {fileID: 0}
     - target: {fileID: 7055995355224465712, guid: 8cfd7e1e998aec34794699751c29f3de, type: 3}
       propertyPath: _health
       value: 
